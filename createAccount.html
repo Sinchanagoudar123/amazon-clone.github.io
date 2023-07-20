@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Amazon Account</title>
+    <link rel="stylesheet" href="createAccount.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="images\amazon-logo.png" alt=""></a>
+    </header>
+    <main>
+        <div class="container" id="ca">
+            <h2>Create Your Amazon Account</h2>
+            <form action="#">
+                <label for="name"style="font-weight: bolder;">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="First and last name" required>
+
+                <label for="mobile" style="font-weight: bolder;">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="91+ mobile number" required>
+
+                <label for="email"style="font-weight: bolder;">Email(Optional)</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password"style="font-weight: bolder;">Password</label>
+                <input type="password" id="password" name="password" placeholder="Atleast 6 character" required>
+                <p style="font-size: 14px;">! password must be 6 characters</p>
+                <br>
+<p class="notification-message" style="font-size:14px;">By enrolling your mobile phone number, you consent to receive automated security notifications via text message from Amazon. Message and data rates may apply.</p>
+<input type="submit" value="Create Account" >
+  
+            </form>
+
+            <p class="login-link">Already have an account? <a href="login.html">Sign in</a></p>
+           <p style="font-size: 13px;"> By creating an account or logging in, you agree to Amazon’s Conditions of Use and Privacy Policy.</p>
+        </div>
+        <script>
+            // Retrieve the form element
+            var createAccountForm = document.getElementById('ca');
+          
+            // Add a submit event listener to the form
+            createAccountForm.addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent the default form submission
+              window.location.href = 'index.html';
+              // Perform your desired action here
+              // For example, you can display a success message or execute some custom code
+              alert('Account created successfully!');
+              
+            });
+          </script>
+    </main>
+    <footer>
+        <div class="extra">
+            <p class="links" style="margin-left: -4%;">
+                <a href="#" id="first">Condition of Use </a>&nbsp
+                <a href="#">Notice of Use</a>&nbsp
+                <a href="#">Help</a>
+            </p>
+            <p class="links" id="special" style="margin-left: -4%;">
+                © 1996-2023, Amazon.com, Inc. or its affiliates
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

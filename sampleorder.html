@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Orders</title>
+
+  <!-- This code is needed for responsive design to work.
+    (Responsive design = make the website look good on
+    smaller screen sizes like a phone or a tablet). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Load a font called Roboto from Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Here are the CSS files for this page. -->
+  <link rel="stylesheet" href="styles/shared/general.css" />
+  <link rel="stylesheet" href="styles/shared/amazon-header.css" />
+  <link rel="stylesheet" href="styles/pages/orders.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="icon" type="image/svg" href="images/icons/amazon-favicon.svg" />
+</head>
+<body>
+  <div class="amazon-header">
+    <div class="amazon-header-left-section">
+      <a href="index.html" class="header-link">
+        <img
+          class="amazon-logo"
+          src="images/amazon-logo-white.png"
+          alt="Amazon Logo" />
+        <img
+          class="amazon-mobile-logo"
+          src="images/amazon-mobile-logo-white.png"
+          alt="Amazon Mobile Logo" />
+      </a>
+    </div>
+
+    <div class="amazon-header-middle-section">
+      <input class="search-bar" type="text" placeholder="Search" />
+
+      <button class="search-button">
+        <img
+          class="search-icon"
+          src="images/search-icon.png"
+          alt="Search Icon" />
+      </button>
+    </div>
+
+    <div class="amazon-header-right-section">
+      <a class="orders-link header-link" href="sampleorder.html">
+        <span class="returns-text">Returns</span>
+        <span class="orders-text">& Orders</span>
+      </a>
+
+      <a class="cart-link header-link" href="samplecart.html">
+        <img
+          class="cart-icon"
+          src="images/cart-icon.png"
+          alt="Cart Icon" />
+        <div class="cart-quantity"></div>
+        <div class="cart-text">Cart</div>
+      </a>
+    </div>
+  </div>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .orders {
+      margin-top: 30px;
+    }
+
+    .order-history {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .order {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+
+    .order-number {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .product-name {
+      margin-bottom: 5px;
+    }
+
+    .price {
+      margin-bottom: 5px;
+    }
+
+    .arrival-date {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .remove-button {
+      color: black;
+      display: block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #f59211;
+      
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    .remove-button:hover {
+      background-color: #ecdd0d;
+    }
+
+    .back-button {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+   <!-- Header section -->
+<h1></h1>
+<p></p>
+
+
+  <div class="orders">
+    <div class="order-history">
+      <h3>Order History</h3>
+      <div id="order-history">
+        <!-- Order history will be dynamically added here -->
+      </div>
+      <button class="remove-button" onclick="removeOrderHistory()"style="color: black;">Remove Order History</button>
+    </div>
+    <br><br>
+  </div>
+  <p></p>
+  <!-- Footer -->
+  
+<section class="footer">
+    <div class="backtop"><a href="samplecart.html">
+        <span>Back to Top</span></a>
+    </div>
+    <div class="detail">
+        <div class="table">
+            <div>
+                <div class="t-head">Get to Know Us</div>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blogs</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                    <li>Amazon Advices</li>
+                    <li>Amazon Science</li>
+                </ul>
+            </div>
+        
+            <div>
+                <div class="t-head">Make Money with Us</div>
+                <ul>
+                    <li>Sell Products on Amazon</li>
+                    <li>Sell on Amazon Business</li>
+                    <li>Sell Apps on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Advertise your Products</li>
+                    <li>Host an Amazon Hub</li>
+                </ul>
+            </div>
+        
+       
+            <div>
+                <div class="t-head">Amazon Payment Products</div>
+                <ul>
+                    <li>Amazon Business Cards</li>
+                    <li>Shop with Points</li>
+                    <li>Reload your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+        
+        
+            <div>
+                <div class="t-head">Let Us Help You</div>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Yoyr Orders</li>
+                    <li>Shipping Rates and Policies</li>
+                    <li>Returns and Replacements</li>
+                    <li>Manage your Content & Devices</li>
+                    <li>Amazon Assistant</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="copy">
+        <span>&copy; Designed by Sinchana Goudar</span>
+    </div>
+</section>
+  
+  <script>
+    function displayOrderHistory() {
+      var orders = JSON.parse(localStorage.getItem("orders")) || [];
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var combinedOrder = [...orders, ...cartItems];
+      var orderHistoryDiv = document.getElementById("order-history");
+      orderHistoryDiv.innerHTML = "";
+
+      if (combinedOrder.length === 0) {
+        var noOrdersMsg = document.createElement("p");
+        noOrdersMsg.textContent = "No orders placed.";
+        orderHistoryDiv.appendChild(noOrdersMsg);
+        return;
+      }
+
+      for (var i = 0; i < combinedOrder.length; i++) {
+        var orderDiv = document.createElement("div");
+        var orderNumber = document.createElement("p");
+        var productName = document.createElement("p");
+        var price = document.createElement("p");
+        var arrivalDate = document.createElement("p");
+        var removeButton = document.createElement("button");
+
+        orderNumber.textContent = "Order #" + (i + 1);
+        productName.textContent = "Product Name: " + combinedOrder[i].productName;
+        price.textContent = "Price: ₹" + combinedOrder[i].price.toFixed(2);
+
+        // Check if arrival date already exists in localStorage
+        var orderKey = "order_" + i;
+        var storedOrder = localStorage.getItem(orderKey);
+        if (storedOrder) {
+          arrivalDate.textContent = "Arrival Date: " + storedOrder;
+        } else {
+          // Generate a random arrival date
+          var startDate = new Date();
+          var endDate = new Date();
+          endDate.setDate(endDate.getDate() + Math.floor(Math.random() * 10) + 1);
+          var formattedDate = formatDate(endDate);
+          arrivalDate.textContent = "Arrival Date: " + formattedDate;
+
+          // Store the arrival date in localStorage
+          localStorage.setItem(orderKey, formattedDate);
+        }
+
+        removeButton.textContent = "Remove";
+        removeButton.classList.add("remove-button");
+        removeButton.setAttribute("data-index", i);
+        removeButton.addEventListener("click", removeOrder);
+
+        orderDiv.classList.add("order");
+        orderDiv.appendChild(orderNumber);
+        orderDiv.appendChild(productName);
+        orderDiv.appendChild(price);
+        orderDiv.appendChild(arrivalDate);
+        orderDiv.appendChild(removeButton);
+        orderHistoryDiv.appendChild(orderDiv);
+      }
+
+      // Clear the cart items in localStorage
+      localStorage.removeItem("cartItems");
+    }
+
+    function formatDate(date) {
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+
+      return day + "/" + month + "/" + year;
+    }
+
+    function removeOrder(event) {
+      var index = parseInt(event.target.getAttribute("data-index"));
+      var orders = JSON.parse(localStorage.getItem("orders")) || [];
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var combinedOrder = [...orders, ...cartItems];
+
+      if (index >= 0 && index < combinedOrder.length) {
+        combinedOrder.splice(index, 1);
+        localStorage.setItem("orders", JSON.stringify(combinedOrder));
+        displayOrderHistory();
+      }
+    }
+
+    function removeOrderHistory() {
+      localStorage.removeItem("orders");
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key.startsWith("order_")) {
+          localStorage.removeItem(key);
+        }
+      }
+      displayOrderHistory();
+    }
+
+    function goBack() {
+      // Redirect to the cart page or any other page you desire
+      window.location.href = "samplecart.html";
+    }
+
+    // Call the displayOrderHistory function to populate the order history on page load
+    displayOrderHistory();
+  </script>
+
+
+
+</body>
+</html>

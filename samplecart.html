@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Orders</title>
+
+  <!-- This code is needed for responsive design to work.
+    (Responsive design = make the website look good on
+    smaller screen sizes like a phone or a tablet). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Load a font called Roboto from Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Here are the CSS files for this page. -->
+  <link rel="stylesheet" href="styles/shared/general.css" />
+  <link rel="stylesheet" href="styles/shared/amazon-header.css" />
+  <link rel="stylesheet" href="styles/pages/orders.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="icon" type="image/svg" href="images/icons/amazon-favicon.svg" />
+</head>
+<body>
+  <div class="amazon-header">
+    <div class="amazon-header-left-section">
+      <a href="index.html" class="header-link">
+        <img
+          class="amazon-logo"
+          src="images/amazon-logo-white.png"
+          alt="Amazon Logo" />
+        <img
+          class="amazon-mobile-logo"
+          src="images/amazon-mobile-logo-white.png"
+          alt="Amazon Mobile Logo" />
+      </a>
+    </div>
+
+    <div class="amazon-header-middle-section">
+      <input class="search-bar" type="text" placeholder="Search" />
+
+      <button class="search-button">
+        <img
+          class="search-icon"
+          src="images/search-icon.png"
+          alt="Search Icon" />
+      </button>
+    </div>
+
+    <div class="amazon-header-right-section">
+      <a class="orders-link header-link" href="sampleorder.html">
+        <span class="returns-text">Returns</span>
+        <span class="orders-text">& Orders</span>
+      </a>
+
+      <a class="cart-link header-link" href="samplecart.html">
+        <img
+          class="cart-icon"
+          src="images/cart-icon.png"
+          alt="Cart Icon" />
+        <div class="cart-quantity"></div>
+        <div class="cart-text">Cart</div>
+      </a>
+    </div>
+  </div>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2874f0;
+      margin-bottom: 30px;
+    }
+
+    .cart {
+      
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      color: #eba611;
+    }
+
+    .remove-button {
+      background-color: #f59211;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    .remove-button:hover {
+      background-color: #ecdd0d;
+    }
+
+    .bill-container {
+      padding-top: 25%;
+      margin-top: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .bill-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .bill-table th,
+    .bill-table td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .bill-table th {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .bill-table td.amount {
+      text-align: right;
+    }
+
+    .place-order-button {
+     height: 40px;
+      display: block;
+      margin-top: 20px;
+      padding: 10px 8px;
+      background-color: #f59211;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      margin-left: 45%;
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+
+    .place-order-button:hover {
+      
+      background-color: #ecdd0d;
+     
+    }
+  </style>
+</head>
+<body>
+  <!-- Header section -->
+ 
+
+<h1></h1>
+<p></p>
+<div class="bill-container">
+  <div class="cart">
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+
+  
+    <h2>Order Summary</h2>
+    <table class="bill-table">
+      <tbody id="bill-items">
+        <!-- Bill items will be dynamically added here -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Subtotal</th>
+          <td class="amount" id="subtotal-amount"></td>
+        </tr>
+        <tr>
+          <th>Delivery Charge</th>
+          <td class="amount" id="delivery-charge-amount"></td>
+        </tr>
+        <tr>
+          <th>Total</th>
+          <td class="amount" id="total-amount"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <button class="place-order-button" onclick="placeOrder()" style="color: black;"> place Order</button><br>
+  <p></p>
+  <!-- Footer -->
+  <section class="footer">
+    <div class="backtop"><a href="samplecart.html">
+        <span>Back to Top</span></a>
+    </div>
+    <div class="detail">
+        <div class="table">
+            <div>
+                <div class="t-head">Get to Know Us</div>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blogs</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                    <li>Amazon Advices</li>
+                    <li>Amazon Science</li>
+                </ul>
+            </div>
+        
+            <div>
+                <div class="t-head">Make Money with Us</div>
+                <ul>
+                    <li>Sell Products on Amazon</li>
+                    <li>Sell on Amazon Business</li>
+                    <li>Sell Apps on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Advertise your Products</li>
+                    <li>Host an Amazon Hub</li>
+                </ul>
+            </div>
+        
+       
+            <div>
+                <div class="t-head">Amazon Payment Products</div>
+                <ul>
+                    <li>Amazon Business Cards</li>
+                    <li>Shop with Points</li>
+                    <li>Reload your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+        
+        
+            <div>
+                <div class="t-head">Let Us Help You</div>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Yoyr Orders</li>
+                    <li>Shipping Rates and Policies</li>
+                    <li>Returns and Replacements</li>
+                    <li>Manage your Content & Devices</li>
+                    <li>Amazon Assistant</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="copy">
+        <span>&copy; Designed by Sinchana Goudar</span>
+    </div>
+</section>
+
+  <script>
+    function displayCartItems() {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var cartTable = document.getElementById("cart-items");
+      cartTable.innerHTML = "";
+
+      for (var i = 0; i < cartItems.length; i++) {
+        var itemRow = document.createElement("tr");
+        var itemName = document.createElement("td");
+        var itemPrice = document.createElement("td");
+        var itemAction = document.createElement("td");
+
+        itemName.textContent = cartItems[i].productName;
+        itemPrice.textContent = "₹" + cartItems[i].price.toFixed(2);
+        itemAction.innerHTML = '<button class="remove-button" onclick="removeItem(' + i + ')" style="color: black;">Remove</button>';
+
+        itemRow.appendChild(itemName);
+        itemRow.appendChild(itemPrice);
+        itemRow.appendChild(itemAction);
+        cartTable.appendChild(itemRow);
+      }
+    }
+
+    function removeItem(index) {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      if (index >= 0 && index < cartItems.length) {
+        cartItems.splice(index, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCartItems();
+        calculateBill();
+      }
+    }
+
+    function calculateBill() {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var subtotal = 0;
+
+      for (var i = 0; i < cartItems.length; i++) {
+        subtotal += cartItems[i].price;
+      }
+
+      var deliveryCharge = cartItems.length > 0 ? Math.floor(Math.random() * 10) + 1 : 0; // Randomly generated delivery charge or 0 if no items are present
+      var total = subtotal + deliveryCharge;
+
+      document.getElementById("subtotal-amount").textContent = "₹" + subtotal.toFixed(2);
+      document.getElementById("delivery-charge-amount").textContent = "₹" + deliveryCharge.toFixed(2);
+      document.getElementById("total-amount").textContent = "₹" + total.toFixed(2);
+    }
+
+    function placeOrder() {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      if (cartItems.length === 0) {
+        alert("No items in the cart!");
+        return;
+      }
+
+      var orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(...cartItems);
+      localStorage.setItem("orders", JSON.stringify(orders));
+
+      // Clear the cart items in localStorage
+      localStorage.removeItem("cartItems");
+
+      // Redirect to the orders page
+      window.location.href = "sampleorder.html";
+    }
+
+    // Call the displayCartItems function to populate the cart items on page load
+    displayCartItems();
+    calculateBill();
+  </script>
+</body>
+</html>
